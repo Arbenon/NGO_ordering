@@ -19,13 +19,13 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 
 try:
     driver.get("https://e.land.gov.ua/back/service/main")
-    time.sleep(20)
+    time.sleep(10)
 except TimeoutException:
     print("Failed to load the main page.")
     driver.quit()
     exit()
 
-    # Пошук посилання "Відомості ДЗК" за кількома методами
+# Пошук посилання "Відомості ДЗК" за кількома методами
 try:
     info_DZK_link = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.XPATH, "//a[contains(text(), 'Відомості ДЗК')]"))
@@ -41,14 +41,14 @@ except TimeoutException:
                 EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='Відомості ДЗК']"))
             )
         except TimeoutException:
-            print("Failed to find 'Інформація про права' link.")
+            print("Failed to find 'Відомості ДЗК' link.")
             driver.quit()
             exit()
 
 if info_DZK_link:
     info_DZK_link.click()
 
-    # Пошук посилання "Замовити" за кількома методами
+# Пошук посилання "Замовити" за кількома методами
 try:
     info_DZK_order_link = WebDriverWait(driver, 2).until(
         EC.presence_of_element_located((By.XPATH, "//a[contains(text(), 'Замовити')]"))
@@ -64,14 +64,15 @@ except TimeoutException:
                 EC.presence_of_element_located((By.CSS_SELECTOR, "a[href*='Замовити']"))
             )
         except TimeoutException:
+            print("Не вдалося знайти посилання 'Замовити'")
             driver.quit()
-            exit("Не вдалося знайти посилання 'Замовити'")
+            exit()
 
 if info_DZK_order_link:
     info_DZK_order_link.click()
 
 def process_cadastral_number(driver, cadastral_number):
-        # Вибір типу заяви
+    time.sleep(2)
     try:
         application_type_dropdown = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Тип заяви')]/following-sibling::select"))
@@ -81,93 +82,94 @@ def process_cadastral_number(driver, cadastral_number):
         for _ in range(6):
             application_type_dropdown.send_keys(Keys.ARROW_DOWN)
         application_type_dropdown.send_keys(Keys.ENTER)
-            
     except TimeoutException:
-        driver.quit()
-        exit("Не вдалося знайти або взаємодіяти з випадаючим списком 'Тип заяви'")
+        print("Не вдалося знайти або взаємодіяти з випадаючим списком 'Тип заяви'")
+        return False
 
-        # Введення кадастрового номеру
+    # Введення кадастрового номеру
     try:
         cadastral_number_field = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//label[contains(text(), 'Кадастровий номер земельної ділянки')]/following-sibling::input"))
         )
         cadastral_number_field.send_keys(cadastral_number)
     except TimeoutException:
-        driver.quit()
-        exit("Не вдалося знайти поле для вводу кадастрового номеру")
+        print("Не вдалося знайти поле для вводу кадастрового номеру")
+        return False
 
-        # Використання TAB для переходу між полями
+    # Використання TAB для переходу між полями
     for _ in range(9):
         driver.switch_to.active_element.send_keys(Keys.TAB)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
-        # Введення місця проживання
+    # Введення місця проживання
     try:
+        time.sleep(1)
         residence_field = driver.switch_to.active_element
         residence_field.send_keys("Смт. Любар")
     except Exception as e:
         print(f"Не вдалося ввести місце проживання: {e}")
-        driver.quit()
-        exit()
+        return False
 
     residence_field.send_keys(Keys.TAB)
 
-        # Введення номеру телефону
+    # Введення номеру телефону
     try:
+        time.sleep(1)
         phone_number_field = driver.switch_to.active_element
         phone_number_field.send_keys("0665760418")
     except Exception as e:
         print(f"Не вдалося ввести номер телефону: {e}")
-        driver.quit()
-        exit()
+        return False
 
-        # Використання TAB для переходу між полями ще 8 разів
+    # Використання TAB для переходу між полями ще 8 разів
     for _ in range(9):
         driver.switch_to.active_element.send_keys(Keys.TAB)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
-        # Натискання стрілочки вправо
+    # Натискання стрілочки вправо
     driver.switch_to.active_element.send_keys(Keys.ARROW_RIGHT)
 
-        # Додаткові два натискання клавіші TAB
+    # Додаткові два натискання клавіші TAB
     for _ in range(2):
         driver.switch_to.active_element.send_keys(Keys.TAB)
-        time.sleep(0.1)
+        time.sleep(0.2)
 
-        # Натискання пробіл
+    # Натискання пробіл
     driver.switch_to.active_element.send_keys(Keys.SPACE)
 
-        # Натискання клавіші TAB
+    # Натискання клавіші TAB
     driver.switch_to.active_element.send_keys(Keys.TAB)
-    time.sleep(0.1)
+    time.sleep(0.2)
 
-        # Затримка в 5 секунд перед натисканням ENTER
-    time.sleep(5)
+    # Затримка в 2 секунд перед натисканням ENTER
+    time.sleep(1.5)
 
-        # Натискання ENTER
+    # Натискання ENTER
     driver.switch_to.active_element.send_keys(Keys.ENTER)
 
-        # Затримка перед закриттям
-    time.sleep(2)
+    # Затримка перед закриттям
+    time.sleep(1.5)
 
-        # Натискання на кнопку "Закрити"
+    # Натискання на кнопку "Закрити"
     try:
-        close_button = WebDriverWait(driver, 5).until(
+        close_button = WebDriverWait(driver, 2).until(
             EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Закрити')]"))
         )
         close_button.click()
+
     except TimeoutException:
         print("Кнопка 'Закрити' не знайдена")
-        driver.quit()
-        exit()
+        return False
 
-    # Читання файлу кадастрових номерів
+    return True
+
+# Читання файлу кадастрових номерів
 file_path = "cadastral.txt"
 
-    # Перевірка, чи файл існує
+# Перевірка, чи файл існує
 if not os.path.isfile(file_path):
     print(f"File '{file_path}' does not exist.")
-        # Виводимо список файлів у поточному каталозі
+    # Виводимо список файлів у поточному каталозі
     print("Files in the current directory:")
     for file_name in os.listdir('.'):
         print(file_name)
@@ -175,9 +177,9 @@ if not os.path.isfile(file_path):
     exit()
 
 with open(file_path, "r") as file:
-        cadastral_numbers = file.readlines()
+    cadastral_numbers = file.readlines()
 
-    # Очищення пробілів і символів переведення рядка
+# Очищення пробілів і символів переведення рядка
 cadastral_numbers = [line.strip() for line in cadastral_numbers if line.strip()]
 
 if not cadastral_numbers:
@@ -185,12 +187,15 @@ if not cadastral_numbers:
     driver.quit()
     exit()
 
-    # Ітерація по кадастровим номерам
+# Ітерація по кадастровим номерам
 for number in cadastral_numbers:
     if number:  # Пропускаємо пусті строки
         success = process_cadastral_number(driver, number)
-        if not success:
-            print(f"Failed to process cadastral number: {number}")
+        if success:
+            print(f"Кадастровий номер {number} завантажено.")
+        else:
+            print(f"Кадастровий номер {number} не завантажено.")
             break
 
+print("Кінець списку cadastral.txt -- Зайдіть в 'Історію' та завантажте довідки.")
 driver.quit()

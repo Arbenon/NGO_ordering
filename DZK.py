@@ -12,8 +12,6 @@ import os
 
 # Налаштування Chrome
 chrome_options = Options()
-
-# Вказати шлях до профілю
 chrome_options.add_argument("profile-directory=Yevhenii Stakhovskyi")  # Змінюйте "Default" на назву вашого профілю, якщо потрібно
 
 # Запуск Chrome з вказаним профілем
