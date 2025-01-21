@@ -104,7 +104,7 @@ def process_cadastral_number(driver, cadastral_number):
 
     # Введення місця проживання
     try:
-        time.sleep(1)
+        time.sleep(0.5)
         residence_field = driver.switch_to.active_element
         residence_field.send_keys("Смт. Любар")
     except Exception as e:
@@ -115,7 +115,7 @@ def process_cadastral_number(driver, cadastral_number):
 
     # Введення номеру телефону
     try:
-        time.sleep(1)
+        time.sleep(0.5)
         phone_number_field = driver.switch_to.active_element
         phone_number_field.send_keys("0665760418")
     except Exception as e:
@@ -143,7 +143,7 @@ def process_cadastral_number(driver, cadastral_number):
     time.sleep(0.2)
 
     # Затримка в 2 секунд перед натисканням ENTER
-    time.sleep(1.5)
+    time.sleep(0.5)
 
     # Натискання ENTER
     driver.switch_to.active_element.send_keys(Keys.ENTER)
