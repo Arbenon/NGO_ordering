@@ -1,0 +1,38 @@
+2025-01-20 10:28:59,873 - INFO - Початок обробки PDF файлів...
+2025-01-20 10:28:59,874 - INFO - Знайдено файлів для обробки: 7
+2025-01-20 10:28:59,876 - INFO - Обробка файлу: D:\Downloads\EXC_70780964.pdf.p7s.pdf
+2025-01-20 10:28:59,877 - WARNING - incorrect startxref pointer(1)
+2025-01-20 10:28:59,878 - INFO - Кількість сторінок у файлі: 1
+2025-01-20 10:28:59,879 - INFO - Обробка сторінки 1 із 1
+2025-01-20 10:28:59,881 - ERROR - Помилка під час обробки файлу D:\Downloads\EXC_70780964.pdf.p7s.pdf: 'utf-8' codec can't decode byte 0x82 in position 1: invalid start byte
+2025-01-20 10:28:59,882 - INFO - Обробка файлу: D:\Downloads\EXC_70781113.pdf.p7s.pdf
+2025-01-20 10:28:59,883 - WARNING - incorrect startxref pointer(1)
+2025-01-20 10:28:59,889 - INFO - Кількість сторінок у файлі: 1
+2025-01-20 10:28:59,890 - INFO - Обробка сторінки 1 із 1
+2025-01-20 10:28:59,892 - ERROR - Помилка під час обробки файлу D:\Downloads\EXC_70781113.pdf.p7s.pdf: 'utf-8' codec can't decode byte 0x82 in position 1: invalid start byte
+2025-01-20 10:28:59,893 - INFO - Обробка файлу: D:\Downloads\EXC_70781269.pdf.p7s.pdf
+2025-01-20 10:28:59,894 - WARNING - incorrect startxref pointer(1)
+2025-01-20 10:28:59,895 - INFO - Кількість сторінок у файлі: 1
+2025-01-20 10:28:59,895 - INFO - Обробка сторінки 1 із 1
+2025-01-20 10:28:59,899 - ERROR - Помилка під час обробки файлу D:\Downloads\EXC_70781269.pdf.p7s.pdf: 'utf-8' codec can't decode byte 0x82 in position 1: invalid start byte
+2025-01-20 10:28:59,899 - INFO - Обробка файлу: D:\Downloads\EXC_70781469.pdf.p7s.pdf
+2025-01-20 10:28:59,901 - WARNING - incorrect startxref pointer(1)
+2025-01-20 10:28:59,902 - INFO - Кількість сторінок у файлі: 1
+2025-01-20 10:28:59,903 - INFO - Обробка сторінки 1 із 1
+2025-01-20 10:28:59,906 - ERROR - Помилка під час обробки файлу D:\Downloads\EXC_70781469.pdf.p7s.pdf: 'utf-8' codec can't decode byte 0x82 in position 1: invalid start byte
+2025-01-20 10:28:59,906 - INFO - Обробка файлу: D:\Downloads\EXC_70781651.pdf.p7s.pdf
+2025-01-20 10:28:59,907 - WARNING - incorrect startxref pointer(1)
+2025-01-20 10:28:59,909 - INFO - Кількість сторінок у файлі: 1
+2025-01-20 10:28:59,909 - INFO - Обробка сторінки 1 із 1
+2025-01-20 10:28:59,912 - ERROR - Помилка під час обробки файлу D:\Downloads\EXC_70781651.pdf.p7s.pdf: 'utf-8' codec can't decode byte 0x82 in position 1: invalid start byte
+2025-01-20 10:28:59,914 - INFO - Обробка файлу: D:\Downloads\EXC_70781891.pdf.p7s.pdf
+2025-01-20 10:28:59,915 - WARNING - incorrect startxref pointer(1)
+2025-01-20 10:28:59,917 - INFO - Кількість сторінок у файлі: 1
+2025-01-20 10:28:59,917 - INFO - Обробка сторінки 1 із 1
+2025-01-20 10:28:59,921 - ERROR - Помилка під час обробки файлу D:\Downloads\EXC_70781891.pdf.p7s.pdf: 'utf-8' codec can't decode byte 0x82 in position 1: invalid start byte
+2025-01-20 10:28:59,922 - INFO - Обробка файлу: D:\Downloads\EXC_70782096.pdf.p7s.pdf
+2025-01-20 10:28:59,943 - WARNING - incorrect startxref pointer(1)
+2025-01-20 10:28:59,945 - INFO - Кількість сторінок у файлі: 1
+2025-01-20 10:28:59,945 - INFO - Обробка сторінки 1 із 1
+2025-01-20 10:28:59,948 - ERROR - Помилка під час обробки файлу D:\Downloads\EXC_70782096.pdf.p7s.pdf: 'utf-8' codec can't decode byte 0x82 in position 1: invalid start byte
+2025-01-20 10:28:59,959 - INFO - Обробка завершена! Об'єднаний файл збережено: D:\Downloads\final_merged.pdf
